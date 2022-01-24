@@ -10,9 +10,9 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 router.get('/:url', async (req, res, next) => {
+  try {
 	res.set('Access-Control-Allow-Origin', '*');
 	var url = req.params.url.replaceAll('..','/')
-  	try {
     	const response = await axios.get(url)//https://www.fruityvice.com/api/fruit/all");
         res.send(response.data);
     }catch (err) {
