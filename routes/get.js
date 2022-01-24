@@ -12,8 +12,11 @@ module.exports = router;
 router.get('/:url', async (req, res, next) => {
   try {
 	res.set('Access-Control-Allow-Origin', '*');
-	var url = req.params.url.replaceAll('..','/')
-    	const response = await axios.get(url)//https://www.fruityvice.com/api/fruit/all");
+	var url = req.params.url;
+	console.log(url)
+	url = url.replaceAll('..','/');
+    	console.log(url)
+	const response = await axios.get(url)//https://www.fruityvice.com/api/fruit/all");
         res.send(response.data);
     }catch (err) {
         next(err)
