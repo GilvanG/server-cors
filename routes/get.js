@@ -14,7 +14,7 @@ router.get('/:url', async (req, res, next) => {
 	res.set('Access-Control-Allow-Origin', '*');
 	var url = req.params.url;
 	console.log(url)
-	url = url.replaceAll('..','/');
+	url = url.replace(/../g, '/');
     	console.log(url)
 	const response = await axios.get(url)//https://www.fruityvice.com/api/fruit/all");
         res.send(response.data);
