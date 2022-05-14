@@ -16,7 +16,7 @@ router.get('/:url', async (req, res, next) => {
 	console.log(url)
 	url = url.split('..').join('/');
 	console.log(url)
-	const response = await axios.get(url)//https://www.fruityvice.com/api/fruit/all");
+	const response = await axios.get(url);
         res.send(response.data);
     }catch (err) {
         next(err)
